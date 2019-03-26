@@ -39,10 +39,15 @@ public class Aula11Test {
 	public void deveRetornarListaDeItens() {
 
 		Aula11 aula11 = new Aula11();
+		
+		List<String> itens = new  ArrayList<>();
+		itens.add("Alicate");
+		itens.add("Martelo");
+		itens.add("Prego");
 
-		Integer itens = aula11.itens();
-
-		Assert.assertEquals(3, itens, 0);
+		List<String> retorno = aula11.listadeitens(itens);
+		
+		Assert.assertEquals(3, retorno);
 	}
 
 	@Test

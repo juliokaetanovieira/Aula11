@@ -31,15 +31,11 @@ public class Aula11 {
 
 	}
 
-	public Integer itens() {
+	public Integer listadeitens(String itens) {
 
-		List<String> itens = new ArrayList<>();
+		List<String> retorno = new ArrayList<>();
 
-		itens.add("Alicate");
-		itens.add("Martelo");
-		itens.add("Prego");
-
-		return itens.size();
+		return retorno.size();
 
 	}
 
@@ -201,6 +197,10 @@ public class Aula11 {
 		maiorvalor.add(2);
 		maiorvalor.add(3);
 		maiorvalor.add(4);
+		maiorvalor.add(4);
+		maiorvalor.add(4);
+		maiorvalor.add(4);
+		
 		if (maiorvalor.get(0) > maiorvalor.get(1) && maiorvalor.get(0) > maiorvalor.get(2)
 				&& maiorvalor.get(0) > maiorvalor.get(3)) {
 			return maiorvalor.get(0);
