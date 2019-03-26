@@ -2,7 +2,9 @@ package br.com.db1.db1start.aula11;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Aula11 {
 
@@ -82,13 +84,37 @@ public class Aula11 {
 		return ordenadodecrescente;
 	}
 
-	public List<List<Integer>> listadelistaimparpar(List<Integer>numeros) {
+	public Map<String, List<Integer>> listadelistaimparpar(List<Integer> numeros) {
+
+		Map<String, List<Integer>> retorno = new HashMap<>();
+
+		for (Integer value : numeros) {
+			if (value % 2 == 0) {
+				if (!retorno.containsKey("PAR")) {
+					retorno.put("PAR", new ArrayList<>());
+				}
+				retorno.get("PAR").add(value);
+
+			} else {
+				if (!retorno.containsKey("IMPAR")) {
+					retorno.put("IMPAR", new ArrayList<>());
+				}
+				retorno.get("IMPAR").add(value);
+			}
+		}
+		return retorno;
+
+	}
+
+	// OU resolver com Lista de Lista:
+	/*
+	public List<List<Integer>> listadelistaimparpar(List<Integer> numeros) {
 		List<Integer> par = new ArrayList<>();
 		List<Integer> impar = new ArrayList<>();
-		for(Integer value : numeros){
-			if(value % 2 == 0){
-				par.add(value);				
-			}else{
+		for (Integer value : numeros) {
+			if (value % 2 == 0) {
+				par.add(value);
+			} else {
 				impar.add(value);
 			}
 		}
@@ -96,25 +122,24 @@ public class Aula11 {
 		resultado.add(par);
 		resultado.add(impar);
 		return resultado;
+
+	} */
+
+	public Map<String, List<String>> dividirPalavrasMap(List<String> palavras) {
 		
+		Map<String, List<String>> retorno = new HashMap<>();
+		Collections.sort(palavras);
+		
+		for(String value: palavras){
+			String letra = value.substring(0, 1);
+			if(!retorno.containsKey(letra)){
+				retorno.put(letra, new ArrayList<>());
+			}
+			
+			retorno.get(letra).add(value);
+		}		
+		return retorno;
 	}
-	
-	/*
-	public Map<Integer, string> mapaDeNomes(){
-	
-		Map<Integer, string=""> mapaNomes = new HashMap<integer, string="">();
-		mapaNomes.put(1, "ANA");
-		mapaNomes.put(2, "ANA LAURA ");
-		mapaNomes.put(3, "JOSE");
-		
-		
-		
-		
-		
-	}
-	
-	 */
-	
 
 	public Integer somar() {
 
@@ -159,65 +184,67 @@ public class Aula11 {
 		menorvalor.add(1);
 		menorvalor.add(2);
 		menorvalor.add(3);
-		if(menorvalor.get(0) < menorvalor.get(1) && menorvalor.get(0) < menorvalor.get(2)) {
+		if (menorvalor.get(0) < menorvalor.get(1) && menorvalor.get(0) < menorvalor.get(2)) {
 			return menorvalor.get(0);
 		}
-		if(menorvalor.get(1) < menorvalor.get(0) && menorvalor.get(1) < menorvalor.get(2)) {
+		if (menorvalor.get(1) < menorvalor.get(0) && menorvalor.get(1) < menorvalor.get(2)) {
 			return menorvalor.get(1);
 		}
 		return menorvalor.get(2);
 	}
-	
+
 	public Integer maiorvalor() {
-		
+
 		List<Integer> maiorvalor = new ArrayList<>();
-		
+
 		maiorvalor.add(1);
 		maiorvalor.add(2);
 		maiorvalor.add(3);
 		maiorvalor.add(4);
-		if(maiorvalor.get(0) > maiorvalor.get(1) && maiorvalor.get(0) > maiorvalor.get(2) && maiorvalor.get(0) > maiorvalor.get(3)) {
+		if (maiorvalor.get(0) > maiorvalor.get(1) && maiorvalor.get(0) > maiorvalor.get(2)
+				&& maiorvalor.get(0) > maiorvalor.get(3)) {
 			return maiorvalor.get(0);
 		}
-		if(maiorvalor.get(1) > maiorvalor.get(0) && maiorvalor.get(1) > maiorvalor.get(2) && maiorvalor.get(1) > maiorvalor.get(3)) {
+		if (maiorvalor.get(1) > maiorvalor.get(0) && maiorvalor.get(1) > maiorvalor.get(2)
+				&& maiorvalor.get(1) > maiorvalor.get(3)) {
 			return maiorvalor.get(1);
 		}
-		if(maiorvalor.get(2) > maiorvalor.get(0) && maiorvalor.get(2) > maiorvalor.get(1) && maiorvalor.get(2) > maiorvalor.get(3)) {
+		if (maiorvalor.get(2) > maiorvalor.get(0) && maiorvalor.get(2) > maiorvalor.get(1)
+				&& maiorvalor.get(2) > maiorvalor.get(3)) {
 			return maiorvalor.get(2);
 		}
 		return maiorvalor.get(3);
 
-		
 	}
-	
+
 	public List<Integer> removerimpares() {
-		
+
 		List<Integer> removerimpar = new ArrayList<>();
-		
+
 		removerimpar.add(1);
 		removerimpar.add(2);
 		removerimpar.add(3);
 		removerimpar.add(4);
 		removerimpar.add(5);
-		for(int i = 0; i < removerimpar.size(); i++) {
-			if(removerimpar.get(i) % 2 != 0) {
+		for (int i = 0; i < removerimpar.size(); i++) {
+			if (removerimpar.get(i) % 2 != 0) {
 				removerimpar.remove(i);
 			}
 		}
 		return removerimpar;
 	}
-	
-	public List<Character> retornarvogais(){
-		
+
+	public List<Character> retornarvogais() {
+
 		List<Character> retornarvogais = new ArrayList<>();
-		
+
 		String frase = "db1 start com java";
-		
-		for(int i = 0; i < frase.length(); i ++) {
+
+		for (int i = 0; i < frase.length(); i++) {
 			char vog = frase.charAt(i);
-			if(vog == 'a' || vog == 'e' || vog == 'i' || vog == 'o' || vog == 'u') {
+			if (vog == 'a' || vog == 'e' || vog == 'i' || vog == 'o' || vog == 'u') {
 				retornarvogais.add(vog);
-			}			
+			}
 		}
 		return retornarvogais;
 	}

@@ -2,6 +2,7 @@ package br.com.db1.db1start.aula11;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -95,8 +96,80 @@ public class Aula11Test {
 		Assert.assertEquals("Anna", ordenadodecrescente.get(2));
 		Assert.assertEquals("Julio", ordenadodecrescente.get(3));
 	}
+
+	@Test
+	public void deveRetornarListaDeListaImparPar() {
+		Aula11 aula11 = new Aula11();
+		
+		List<Integer> numeros = new  ArrayList<>();
+		numeros.add(1);
+		numeros.add(2);
+		numeros.add(4);
+		
+		Map<String, List<Integer>> retorno = aula11.listadelistaimparpar(numeros);
+		
+		Assert.assertEquals(2, retorno.size());
+		
+		List<Integer> par = retorno.get("PAR");
+		List<Integer> impar = retorno.get("IMPAR");
+		
+		
+		Assert.assertEquals(2, par.size());
+		Assert.assertEquals(1, impar.size());
+		
+		Assert.assertEquals(2, par.get(0), 0);
+		Assert.assertEquals(4, par.get(1), 0);
+		
+		Assert.assertEquals(1, impar.get(0), 0);
+		
+	}
 	
+	@Test
+	public void deveRetornarListaSeparadaMap() {
+		Aula11 aula11 = new Aula11();
+		
+		List<String> palavras = new ArrayList<>();
+		
+		palavras.add("ANA");
+		palavras.add("ANA LAURA");
+		palavras.add("JOSE");
+		palavras.add("WAGNER");
+		palavras.add("RODOLFO");
+		palavras.add("ROBERVAL");
+		palavras.add("RODOLPHO");
+		palavras.add("VAGNER");
+		palavras.add("JOSÉ");
+		palavras.add("JOALDO");
+		palavras.add("CLECIO");
+		palavras.add("JOSÉ");
+		palavras.add("MARIA");
+		palavras.add("MARCOS");
+		
+		Map<String, List<String>> retorno = aula11.dividirPalavrasMap(palavras);
+		
+		Assert.assertEquals(7, retorno.size());
+		Assert.assertEquals("ANA", retorno.get("A").get(0));
+		Assert.assertEquals("ANA LAURA", retorno.get("A").get(1));
+		Assert.assertEquals("JOSE", retorno.get("J").get(1));
+		Assert.assertEquals("WAGNER", retorno.get("W").get(0));
+		Assert.assertEquals("RODOLFO", retorno.get("R").get(1));
+		Assert.assertEquals("ROBERVAL", retorno.get("R").get(0));
+		Assert.assertEquals("RODOLPHO", retorno.get("R").get(2));
+		Assert.assertEquals("VAGNER", retorno.get("V").get(0));
+		Assert.assertEquals("JOSÉ", retorno.get("J").get(2));
+		Assert.assertEquals("JOALDO", retorno.get("J").get(0));
+		Assert.assertEquals("CLECIO", retorno.get("C").get(0));
+		Assert.assertEquals("JOSÉ", retorno.get("J").get(3));
+		Assert.assertEquals("MARIA", retorno.get("M").get(1));
+		Assert.assertEquals("MARCOS", retorno.get("M").get(0));
+		
+				
+	}
 	
+
+	
+	//Ou Testar com Lista de Lista
+	/*
 	@Test
 	public void deveRetornarListaDeListaImparPar() {
 		Aula11 aula11 = new Aula11();
@@ -124,7 +197,7 @@ public class Aula11Test {
 		
 		
 
-	} 
+	}  */
 
 	@Test
 	public void deveRetornarSoma() {
