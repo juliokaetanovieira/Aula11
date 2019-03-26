@@ -82,30 +82,38 @@ public class Aula11 {
 		return ordenadodecrescente;
 	}
 
-	public List<List<Integer>> listadepareimpar() {
-
-		List<Integer> numeros = new ArrayList<>();
+	public List<List<Integer>> listadelistaimparpar(List<Integer>numeros) {
 		List<Integer> par = new ArrayList<>();
 		List<Integer> impar = new ArrayList<>();
-		List<List<Integer>> lista = new ArrayList<>();
-
-		numeros.add(1);
-		numeros.add(2);/*
-						 * numeros.add(3); numeros.add(4); numeros.add(5); numeros.add(6);
-						 * numeros.add(7); numeros.add(8); numeros.add(9); numeros.add(10);
-						 */
-		for (int i = 0; i < numeros.size(); i++) {
-			if (numeros.get(i) % 2 == 0) {
-				par.add(numeros.get(i));
-			} else {
-				impar.add(numeros.get(i));
+		for(Integer value : numeros){
+			if(value % 2 == 0){
+				par.add(value);				
+			}else{
+				impar.add(value);
 			}
 		}
-		lista.add(par);
-		lista.add(impar);
-		return lista;
-
+		List<List<Integer>> resultado = new ArrayList<>();
+		resultado.add(par);
+		resultado.add(impar);
+		return resultado;
+		
 	}
+	
+	/*
+	public Map<Integer, string> mapaDeNomes(){
+	
+		Map<Integer, string=""> mapaNomes = new HashMap<integer, string="">();
+		mapaNomes.put(1, "ANA");
+		mapaNomes.put(2, "ANA LAURA ");
+		mapaNomes.put(3, "JOSE");
+		
+		
+		
+		
+		
+	}
+	
+	 */
 	
 
 	public Integer somar() {

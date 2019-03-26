@@ -1,5 +1,6 @@
 package br.com.db1.db1start.aula11;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assert;
@@ -95,18 +96,35 @@ public class Aula11Test {
 		Assert.assertEquals("Julio", ordenadodecrescente.get(3));
 	}
 	
-	/*
+	
 	@Test
-	public void deveRetornarListaParEListaImparDaLista() {
-
+	public void deveRetornarListaDeListaImparPar() {
 		Aula11 aula11 = new Aula11();
-
-		List<List<Integer>> lista = aula11.listadepareimpar();
-
+		
+		List<Integer> numeros = new  ArrayList<>();
+		numeros.add(1);
+		numeros.add(2);
+		numeros.add(4);
+		
+		List<List<Integer>> retorno = aula11.listadelistaimparpar(numeros);
+		
+		Assert.assertEquals(2, retorno.size());
+		
+		List<Integer> par = retorno.get(0);
+		List<Integer> impar = retorno.get(1);
+		
+		
+		Assert.assertEquals(2, par.size());
+		Assert.assertEquals(1, impar.size());
+		
+		Assert.assertEquals(2, par.get(0), 0);
+		Assert.assertEquals(4, par.get(1), 0);
+		
+		Assert.assertEquals(1, impar.get(0), 0);
 		
 		
 
-	} */
+	} 
 
 	@Test
 	public void deveRetornarSoma() {
